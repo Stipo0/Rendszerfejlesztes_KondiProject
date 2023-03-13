@@ -1,9 +1,12 @@
 using KondiProject.API.Data;
 using KondiProject.API.Enums;
+using KondiProject.API.Helpers.FileService;
 using KondiProject.API.Helpers.HttpAccesor;
 using KondiProject.API.Options;
+using KondiProject.API.Repositories.GymMachineRepository;
 using KondiProject.API.Repositories.GymRepository;
 using KondiProject.API.Repositories.UserRepository;
+using KondiProject.API.Services.GymMachineService;
 using KondiProject.API.Services.GymService;
 using KondiProject.API.Services.UserService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -84,7 +87,10 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IGymService, GymService>();
 builder.Services.AddScoped<IGymRepository,GymRepository>();
+builder.Services.AddScoped<IGymMachineService,GymMachineService>();
+builder.Services.AddScoped<IGymMachineRepository, GymMachineRepository>();
 builder.Services.AddScoped<IHttpAccessor, HttpAccessor>();
+builder.Services.AddScoped<IFileService, FileService>();
 
 var app = builder.Build();
 

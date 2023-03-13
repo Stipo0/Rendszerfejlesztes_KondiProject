@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using KondiProject.API.Enums;
-using KondiProject.API.Helpers.HttpAccesor;
 using KondiProject.API.Models.Dtos.Requests;
 using KondiProject.API.Models.Dtos.Responses;
 using KondiProject.API.Services.GymService;
@@ -51,7 +50,7 @@ namespace KondiProject.API.Controllers
             {
                 return NotFound(FunctionCode.UserNotFound);
             }
-            await _userService.DeleteUserAsync(user);
+            await _userService.DeleteAsync(user);
             return NoContent();
         }
 
@@ -102,7 +101,7 @@ namespace KondiProject.API.Controllers
             {
                 return NotFound(FunctionCode.GymNotFound);
             }
-            await _gymService.DeleteGymAsync(gym);
+            await _gymService.DeleteAsync(gym);
             return NoContent();
         }
     }

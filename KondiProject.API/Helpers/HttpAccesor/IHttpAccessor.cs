@@ -3,6 +3,7 @@
     public interface IHttpAccessor
     {
         int GetUserId();
+        int GetGymId();
         string GetRole();
     }
 }

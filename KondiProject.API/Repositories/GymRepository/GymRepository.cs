@@ -13,7 +13,7 @@ namespace KondiProject.API.Repositories.GymRepository
             _context = context;
         }
 
-        public async Task CreateGymAsync(Gym gym)
+        public async Task CreateAsync(Gym gym)
         {
             await _context.AddAsync(gym);
             await _context.SaveChangesAsync();
@@ -49,10 +49,10 @@ namespace KondiProject.API.Repositories.GymRepository
             return _context.Gyms.AsNoTracking().AnyAsync(x=> x.PhoneNumber == phoneNumber);
         }
 
-        public Task DeleteGymAsync(Gym gym) 
+        public Task DeleteAsync(Gym gym) 
         {
             _context.Gyms.Remove(gym);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
             return Task.CompletedTask;
         }
     }

@@ -1,6 +1,5 @@
 ﻿using KondiProject.API.Models.Domains;
 using KondiProject.API.Models.Dtos.Requests;
-using KondiProject.API.Models.Dtos.Responses;
 
 namespace KondiProject.API.Services.UserService
 {
@@ -14,6 +13,6 @@ namespace KondiProject.API.Services.UserService
         Task<List<User>?> GetAllAsync();
         Task<bool> EmailIsExistAsync(string email);
         Task<bool> UsernameIsExistAsync(string username);
-        Task DeleteUserAsync(User user);
+        Task DeleteAsync(User user);
     }
 }

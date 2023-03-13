@@ -31,7 +31,7 @@ namespace KondiProject.API.Services.UserService
             user.PasswordHash = Encoding.UTF8.GetBytes(
                 BCrypt.Net.BCrypt.HashPassword(reguest.Password));
 
-            await _userRepository.CreateUserAsync(user);
+            await _userRepository.CreateAsync(user);
         }
 
         public async Task<User?> GetByIdAsync(int id)
@@ -59,9 +59,9 @@ namespace KondiProject.API.Services.UserService
             return _userRepository.UsernameIsExistAsync(username);
         }
 
-        public Task DeleteUserAsync(User user)
+        public Task DeleteAsync(User user)
         {
-            _userRepository.DeleteUserAsync(user);
+            _userRepository.DeleteAsync(user);
             return Task.CompletedTask;
         }
 

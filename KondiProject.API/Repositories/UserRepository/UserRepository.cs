@@ -13,7 +13,7 @@ namespace KondiProject.API.Repositories.UserRepository
             _context = context; 
         }
 
-        public async Task CreateUserAsync(User user)
+        public async Task CreateAsync(User user)
         {
             await _context.AddAsync(user);
             await _context.SaveChangesAsync();
@@ -44,10 +44,10 @@ namespace KondiProject.API.Repositories.UserRepository
             return _context.Users.AsNoTracking().AnyAsync(x => x.Username == username);
         }
 
-        public Task DeleteUserAsync(User user) 
+        public Task DeleteAsync(User user) 
         {
             _context.Users.Remove(user);
-            _context.SaveChanges();
+            _context.SaveChangesAsync();
             return Task.CompletedTask;
         }
     }

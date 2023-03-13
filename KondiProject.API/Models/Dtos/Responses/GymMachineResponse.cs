@@ -1,6 +1,8 @@
-﻿namespace KondiProject.API.Models.Domains
+﻿using KondiProject.API.Models.Domains;
+
+namespace KondiProject.API.Models.Dtos.Responses
 {
-    public class GymMachine
+    public class GymMachineResponse
     {
         public int Id { get; set; }
 
@@ -9,9 +11,5 @@
         public string? ImageName { get; set; }
 
         public List<GymMaschineInformation>? Informations { get; set; }
-
-        public Gym Gym { get; set; } = null!;
-
-        public int GymId { get; set; }
     }
 }

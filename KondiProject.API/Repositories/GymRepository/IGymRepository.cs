@@ -4,7 +4,7 @@ namespace KondiProject.API.Repositories.GymRepository
 {
     public interface IGymRepository
     {
-        Task CreateGymAsync(Gym gym);
+        Task CreateAsync(Gym gym);
 
         Task<Gym?> GetByIdAsync(int id);
 
@@ -18,6 +18,6 @@ namespace KondiProject.API.Repositories.GymRepository
 
         Task<bool> PhoneNumberIsExistAsync(string phoneNumber);
 
-        Task DeleteGymAsync(Gym gym);
+        Task DeleteAsync(Gym gym);
     }
 }

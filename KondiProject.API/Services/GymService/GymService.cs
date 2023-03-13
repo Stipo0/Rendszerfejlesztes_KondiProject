@@ -14,12 +14,12 @@ namespace KondiProject.API.Services.GymService
 {
     public class GymService : IGymService
     {
-        private readonly IGymRepository _gymRepository;
+        private readonly IGymRepository _repository;
         private readonly IMapper _mapper;
         private readonly JwtOptions _jwtOptions;
-        public GymService(IGymRepository gymRepository, IMapper mapper, IOptions<JwtOptions> jwtOptions)
+        public GymService(IGymRepository repository, IMapper mapper, IOptions<JwtOptions> jwtOptions)
         {
-            _gymRepository = gymRepository;
+            _repository = repository;
             _mapper = mapper;
             _jwtOptions = jwtOptions.Value;
         }
@@ -31,42 +31,42 @@ namespace KondiProject.API.Services.GymService
             gym.PasswordHash = Encoding.UTF8.GetBytes(
                 BCrypt.Net.BCrypt.HashPassword(reguest.Password));
 
-            await _gymRepository.CreateGymAsync(gym);
+            await _repository.CreateAsync(gym);
         }
 
         public async Task<Gym?> GetByIdAsync(int id)
         {
-            return await _gymRepository.GetByIdAsync(id);
+            return await _repository.GetByIdAsync(id);
         }
 
         public async Task<Gym?> GetByEmailAsync(string email)
         {
-            return await _gymRepository.GetByEmailAsync(email);
+            return await _repository.GetByEmailAsync(email);
         }
 
         public async Task<List<Gym>?> GetAllAsync()
         {
-            return await _gymRepository.GetAllAsync();
+            return await _repository.GetAllAsync();
         }
 
         public Task<bool> EmailIsExistAsync(string email)
         {
-            return _gymRepository.EmailIsExistAsync(email);
+            return _repository.EmailIsExistAsync(email);
         }
 
         public Task<bool> NameIsExistAsync(string name)
         {
-            return _gymRepository.NameIsExistAsync(name);
+            return _repository.NameIsExistAsync(name);
         }
 
         public Task<bool> PhoneNumberIsExistAsync(string phoneNumber) 
         {
-            return _gymRepository.PhoneNumberIsExistAsync(phoneNumber);
+            return _repository.PhoneNumberIsExistAsync(phoneNumber);
         }
 
-        public Task DeleteGymAsync(Gym gym)
+        public Task DeleteAsync(Gym gym)
         {
-            _gymRepository.DeleteGymAsync(gym);
+            _repository.DeleteAsync(gym);
             return Task.CompletedTask;
         }
 

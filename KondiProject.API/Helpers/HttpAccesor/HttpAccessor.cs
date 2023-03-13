@@ -15,6 +15,13 @@
 
             return Convert.ToInt32(userId);
         }
+        public int GetGymId()
+        {
+            var userId = _context.HttpContext!.User.FindFirst("gymId")!.Value;
+
+            return Convert.ToInt32(userId);
+        }
+
         public string GetRole()
         {
             var role = _context.HttpContext!.User.FindFirst("role")!.Value;

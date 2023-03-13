@@ -2,6 +2,7 @@
 {
     public enum FunctionCode
     {
+        Ok,
         EmailIsExist,
         UsernameIsExist,
         NameIsExist,
@@ -9,5 +10,9 @@
         UserNotFound,
         GymNotFound,
         WrongEmailOrPassword,
+        InvalidFileFormat,
+        FileNotfound,
+        FilePromlem,
+        GymMachineNotFound,
     }
 }
